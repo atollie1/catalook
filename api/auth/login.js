@@ -7,8 +7,8 @@ export default function handler (req, res) {
     password: 'itsSoSecret'
   }
 
-  const correctEmail = crypto.timingSafeEqual(Buffer.from(email), Buffer.from(knownUser.email))
-  const correctPassword = crypto.timingSafeEqual(Buffer.from(password), Buffer.from(knownUser.password))
+  const correctEmail = email === knownUser.email
+  const correctPassword = password === knownUser.password
 
   if (correctEmail && correctPassword) {
     return res.status(200).json({
