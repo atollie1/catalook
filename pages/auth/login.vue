@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary btn-block" type="submit">
+          <button id="loginButton" class="btn btn-primary btn-block" type="submit">
             Login
           </button>
         </div>
