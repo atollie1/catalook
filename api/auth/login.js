@@ -31,7 +31,7 @@ export default function handler (req, res) {
     if (!correctPassword) {
       errors = {
         ...errors,
-        password: 'Invalid email'
+        password: 'Invalid password'
       }
     }
 
