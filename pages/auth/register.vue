@@ -1,9 +1,14 @@
 <template>
-  <Tutorial />
+  <p>Register</p>
 </template>
 
 <script>
+import { redirectIfAuthenticated } from '~/utils/auth'
+
 export default {
-  name: 'RegisterPage'
+  name: 'RegisterPage',
+  mounted () {
+    redirectIfAuthenticated(this)
+  }
 }
 </script>
