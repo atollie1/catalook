@@ -71,7 +71,12 @@ export default {
   methods: {
     login () {
       const data = JSON.stringify(this.form)
-      this.$axios.$post('/api/auth/login', data)
+      this.$axios.$post('/api/auth/login', data, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
         .then((json) => {
           const token = json.data.data.token
           saveAuthToken(token)
