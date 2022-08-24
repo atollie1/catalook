@@ -78,12 +78,13 @@ export default {
         }
       })
         .then((json) => {
-          const token = json.data.data.token
+          const token = json.data.token
           saveAuthToken(token)
           this.$router.push('/')
         })
         .catch(({ response }) => {
-          if (response.status !== 422) {
+          console.error(response)
+          if (response.status && response.status !== 422) {
             this.$bvToast.toast('Something wrong with the server please try again later', {
               variant: 'danger',
               title: 'Server Error'
@@ -98,8 +99,6 @@ export default {
           if (response.data.errors.password) {
             this.errors.password = response.data.errors.password
           }
-
-          console.error(response)
         })
     },
 
